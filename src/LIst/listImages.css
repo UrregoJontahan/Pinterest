@@ -1,0 +1,17 @@
+.counter-images{
+    display: flex;
+    position: relative;
+    padding: 1rem;
+    top: 4.5rem;
+    width: 100%;
+    height: auto;
+    background-color: black;
+    align-items: center;
+    justify-content: center;
+}
+
+.images{
+    background-color: white;
+    width: 200px;
+    height: 200px;
+}

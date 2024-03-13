@@ -1,0 +1,177 @@
+.counter-father{
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.uploads-images{
+    display: flex;
+    width: 100%;
+    height: 800px  ;
+    overflow: hidden;
+    justify-content: center;
+}
+
+.create{
+    display: flex;
+    position: absolute;
+    width: 90%;
+    height: 500px;
+    align-items: center;
+    top: 9.5rem;
+    left: 5rem;
+}
+
+.create-pin{
+    display: flex;
+    justify-content: center;
+    flex-direction:column;
+    position: absolute;
+    padding-left: 2rem;
+    width: 100%;
+    height: 5rem;
+    top: 4.3rem;
+    left: 4.5rem;
+    border-bottom: 1px solid rgb(196, 188, 188);
+    border-top:1px solid rgb(196, 188, 188) ;
+    font-size: 22px;
+    font-weight:600 ;
+}
+.more{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    width: 4rem;
+    height: 500px auto;
+    top: 4.1rem;
+    border-right:1px solid rgb(196, 188, 188);
+    right: 46.8%;
+    background-color: white;
+
+    .show-box{
+        display: flex;
+        position: fixed;
+        width: 4rem;
+        height: 5rem;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        font-size: 35px;
+    }
+    
+    .option-more{
+        position: fixed;
+        display: flex;
+        font-size: 45px;
+        font-weight: bold;
+        top: 9.1rem;
+        width: 4rem;
+        height: 5rem;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        border-bottom: 1px solid rgb(175, 170, 170);
+    }
+}
+
+.box-create-img{
+    position: relative;
+    left: 10rem;
+    width: 400px;
+    height: 450px;
+    border: 2px dashed  rgb(196, 188, 188);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    background-color: rgba(146, 209, 249, 0.222);
+}
+
+.upload-box-images{
+    width: 150px;
+    height: 150px;
+    border: 1px solid gray;
+}
+
+@media only screen and (max-width: 800px) {
+
+    .uploads-images{
+        display: flex;
+        width: 100% auto;
+        max-width: 100%;
+        height: auto;
+        overflow: hidden;
+        justify-content: center;
+    }
+    
+    .create{
+        display: flex;
+        position: absolute;
+        width: auto;
+        height: 500px;
+        align-items: center;
+        top: 7.5rem;
+    }
+    
+    .create-pin{
+        display: flex;
+        position: absolute;
+        width: 100%;
+        height: 4rem;
+        border-bottom: 1px solid rgb(196, 188, 188);
+        border-top:1px solid rgb(196, 188, 188);
+    }
+    .more{
+        display: flex;
+        position: absolute;
+        width: 3rem;
+        height: 500px auto;
+        top: 4.1rem;
+        border-right: 1px solid rgb(196, 188, 188);
+        bottom: 0;
+        left: 0;
+        .show-box{
+            display: flex;
+            position: fixed;
+            width: 3rem;
+            height: 5rem;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            font-size: 35px;
+        }
+        
+        .option-more{
+            position: fixed;
+            display: flex;
+            font-size: 45px;
+            font-weight: bold;
+            top: 9.1rem;
+            width: 3rem;
+            height: 5rem;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            border-bottom: 1px solid rgb(175, 170, 170);
+        }
+    }
+    .box-create-img{
+        position: fixed;
+        left: 5rem;
+        display: flex;
+        width: auto;
+        height: 450px;
+        border: 2px dashed black;
+        justify-content: center;
+        align-items: center;
+        border-radius: 30px;
+    }
+    
+    .upload-box-images{
+        width: 250px;
+        height: 150px;
+        border: 1px solid gray;
+    }
+    
+   }
+ 

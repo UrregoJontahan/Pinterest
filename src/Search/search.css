@@ -1,0 +1,38 @@
+
+@media only screen and (max-width: 600px) {
+    .counter-input{
+        display: flex;
+        justify-content:first baseline;
+        position: relative;
+        right: 2rem;
+        
+    }
+}
+
+.counter-input{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:first baseline;
+    width: 100%;
+    height: 100%;
+    padding: 0 0 0 16px;
+}
+
+.btn-search{
+    display: flex;
+    border-radius: 40px;
+    height: 2.8rem;
+    width: 80%;
+    padding: 0 16px;
+    color: grey;
+    border: none;
+}
+
+.btn-search:focus{
+    outline: 4px rgba(50, 175, 220, 0.726) solid;
+}
+
+.btn-search:hover{
+    background-color: rgba(90, 144, 238, 0.274);
+}
