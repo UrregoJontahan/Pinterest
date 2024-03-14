@@ -36,3 +36,35 @@
 .btn-search:hover{
     background-color: rgba(90, 144, 238, 0.274);
 }
+
+.container-x-cancel{
+    display: flex;
+    position: relative;
+    width: 47px;
+    height: 47px;
+    right: 2.6rem;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    bottom: 1px;
+}
+
+.container-x-cancel:hover{
+    background-color: rgba(113, 140, 157, 0.302);
+}
+
+
+
+.btn-x-cancel{
+    display: flex;
+    width: 25px;
+    height: 25px;
+    font-weight: bold;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
