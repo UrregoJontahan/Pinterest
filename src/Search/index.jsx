@@ -25,16 +25,24 @@ export function Search() {
 
   return (
     <div className="counter-input">
-      <input
-        type="search"
-        className="btn-search"
-        placeholder="🔍 Buscar"
-        onClick={() => setClickInX(true)}
-        ref={inputRef} 
-      />
+      <div className="container-input-answer">
+        <input
+          type="search"
+          className="btn-search"
+          placeholder="🔍 Buscar"
+          onClick={() => setClickInX(true)}
+          ref={inputRef} 
+        />
+        </div>
+
       <div className="container-x-cancel">
-        {clickInX && <button className="btn-x-cancel">x</button>}
+        {clickInX && <button 
+        className="btn-x-cancel"
+        onClick={()=>setClickInX(false)}
+        >x
+          </button>}
       </div>
+        {clickInX && <div className="container-answers"></div>}
     </div>
   );
 }
