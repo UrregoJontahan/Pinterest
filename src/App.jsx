@@ -6,6 +6,7 @@ import { Logo } from './Logo/Logo'
 import { Search } from './Search'
 import { UploadsImages } from './UploadsImages';
 import { ListImages } from './LIst';
+import { SaveUrl } from './SaveUrl';
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
         <Routes>
           <Route path='' element={<ListImages/>}/>
           <Route path='/uploads-img' element={<UploadsImages/>}/>
+          <Route path='/save-url' element={<SaveUrl/>} />
         </Routes>
       </BrowserRouter>
     </>

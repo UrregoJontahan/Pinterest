@@ -1,0 +1,104 @@
+.first-container{
+    display: flex;
+    width: 100%;
+    height: 100% auto;
+    overflow:hidden ;
+    background-color:rgba(50, 175, 220, 0.137);
+}
+
+.page-save-url{
+    display: flex;
+    position: relative;
+    padding: 1rem;
+    top: 6rem;
+    left: 14rem;
+    width: 60%;
+    height: 700px;
+    overflow: hidden;
+    justify-content: center;
+    background-color: white;
+}
+
+.title{
+    position: fixed;
+}
+
+.text-subtitle{
+    position: fixed;
+    top: 9rem;
+}
+
+.btn-back{
+    position: relative;
+    top: 2rem;
+    right: 5rem;
+    width: 20px;
+    height: 20px;
+    rotate: 180deg;
+    cursor: pointer;
+}
+
+.btn-back-arrow{
+    font-size: 25px;
+    border: none;
+    color: gray;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.container-search-url{
+    position: relative;
+    top: 7rem;
+    display: flex;
+    width: 70%;
+    height: 2.5rem;
+}
+
+.btn-search-url{
+    width: 100%;
+    border-radius: 50px;
+    border: none;
+    outline: 2px solid rgba(96, 23, 96, 0.256);
+    padding: 0 16px;
+}
+
+
+.btn-search-url:hover{
+    outline: 2px solid rgba(90, 88, 90, 0.512);
+}
+
+.btn-search-url:focus{
+outline: 4px rgba(50, 175, 220, 0.726) solid;
+}
+
+.container-x-cancel-url{
+    display: flex;
+    position: relative;
+    width: 47px;
+    height: 47px;
+    right: 2.6rem;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    bottom: 1px;
+}
+
+.btn-x-cancel-url{
+    display: flex;
+    width: 45px;
+    height: 45px;
+    font-weight: bold;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color: black;
+    border: none;
+    cursor: pointer;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.btn-x-cancel-url:hover{
+    background-color: rgba(113, 140, 157, 0.302);
+}
+

@@ -1,13 +1,14 @@
 import React from "react";
 import "./inputfile.css"
 import { FaArrowAltCircleUp } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 export function InputFile(){
     return(
         <div className="create">
-            <form class="file-upload-form">
-                <label for="file" class="file-upload-label">
-                    <div class="file-upload-design">
+            <form className="file-upload-form">
+                <label for="file-img" className="file-upload-label">
+                    <div className="file-upload-design">
                             <FaArrowAltCircleUp size={30} />
                         <div className="text-button">
                             <p>Elige un archivo o arrastralo y <br /><span className="text-2">colocalo aquí</span></p>
@@ -19,11 +20,11 @@ export function InputFile(){
                             </p>
                         </div>
                     </div>
-                    <input id="file" type="file" accept="image/*" />
+                    <input id="file-img" type="file" accept="image/*" />
                 </label>
             </form>
             <div className="container-add-url">
-                <button className="add-url"> Guardar desde la URL</button>
+                <Link to={"/save-url"} className="add-url"> Guardar desde la URL</Link>
             </div>
         </div>
     )
