@@ -4,13 +4,10 @@ import { FaArrowAltCircleUp } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 export function InputFile( {onFileSeleted} ){
-    const [selectedFile, setSelectedFile] = useState(null);
 
     const handleFileChange = (e) =>{
         const file = e.target.files[0]
-        setSelectedFile(file)
         onFileSeleted(file)
-        console.log(file)
     }
 
     return(

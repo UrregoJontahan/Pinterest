@@ -9,29 +9,31 @@ export function UploadsImages() {
     
     const [formData, setFormData] = useState({
         title: "",
-        description: "",
-        link: "",
         category: "",
         tags: [],
         image: null,
+        autor: "Jonathan",
+        aspectRatio: 1,
+        format: "jpg",
+        size: 5, //-> en MB
+        downloads: 34
     });
 
-    const handleFileSelected = (file) => {
+    const handleFileSelected = (file) => { // Blob
         const reader = new FileReader();
+
+        //Esto se ejecuta cuando la función se llame 
         reader.onload = () => {
             const imageDataURL = reader.result;
-            localStorage.setItem("selectedImage", imageDataURL);
-            setSelectedImage(file);
+            setSelectedImage(imageDataURL);
         };
+
+        //Aquí se está llamando
         reader.readAsDataURL(file);
-        setFormData((prevFormData) => ({
-            ...prevFormData,
-            image: file,
-        }));
     };
 
-    const handleFormDataChange = (formData) => {
-        setFormData(formData);
+    const handleFormDataChange = (values) => {
+        setFormData({...formData, ...values, image: selectedImage});
     };
 
     return (

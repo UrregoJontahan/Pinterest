@@ -8,10 +8,8 @@ export function Form({onFormDataChange}){
 
     const [formData, setFormData] = useState({
         title: "",
-        description: "",
-        link: "",
         category: "",
-        tags: "",
+        tags: [],
         image:"",
     });
 
@@ -25,7 +23,7 @@ export function Form({onFormDataChange}){
 
     useEffect(() => {
         onFormDataChange(formData);
-    }, [formData, onFormDataChange]);
+    }, [formData]);
 
     return(
         <div className="container-form">
@@ -46,24 +44,7 @@ export function Form({onFormDataChange}){
                         value={formData.title}
                         onChange={handleChange}
                     />
-                    <p>Descripción</p>
-                    <input
-                        className="input-text description"
-                        type="text"
-                        placeholder="Agrega una descripcion detallada"
-                        name="description"
-                        value={formData.description}
-                        onChange={handleChange}
-                    />
-                    <p>Enlace</p>
-                    <input
-                        className="input-text"
-                        type="text"
-                        placeholder="Agrega un enlace"
-                        name="link"
-                        value={formData.link}
-                        onChange={handleChange}
-                    />
+
                     <p>Categorías</p>
                     <input
                         className="input-text"

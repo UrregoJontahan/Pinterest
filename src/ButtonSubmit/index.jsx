@@ -8,7 +8,10 @@ export function ButtonSubmit({ formData }) {
         setLoading(true);
 
         try {
-            const response = await fetch("https://todo-para-isa.zeabur.app/pinterest/create", {
+            let { tags = [] } = formData;
+            let toList = tags.split(",")
+            formData.tags = toList
+            const response = await fetch("http://localhost:4000/pinterest/create", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
