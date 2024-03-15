@@ -1,0 +1,29 @@
+.btn-submit{
+    display: flex;
+    position: fixed;
+    top: 4.6rem;
+    left: 78%;
+    z-index: 10;
+    width: 320px;
+    height: 4rem;
+    align-items: center;
+    color: gray;
+}
+
+.btn-put{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 1rem;
+    border-radius: 25px;
+    height: 2.7rem;
+    width: 5rem;
+    background-color: red;
+    border: none;
+    color: white;
+    font-weight: bold;
+}
+
+.btn-put:hover{
+    background-color: rgb(194, 5, 5); 
+}

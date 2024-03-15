@@ -1,9 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import "./inputfile.css"
 import { FaArrowAltCircleUp } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-export function InputFile(){
+export function InputFile( {onFileSeleted} ){
+    const [selectedFile, setSelectedFile] = useState(null);
+
+    const handleFileChange = (e) =>{
+        const file = e.target.files[0]
+        setSelectedFile(file)
+        onFileSeleted(file)
+        console.log(file)
+    }
+
     return(
         <div className="create">
             <form className="file-upload-form">
@@ -20,7 +29,10 @@ export function InputFile(){
                             </p>
                         </div>
                     </div>
-                    <input id="file-img" type="file" accept="image/*" />
+                    <input id="file-img" 
+                           type="file" 
+                           accept="image/*,video/*" 
+                           onChange={handleFileChange} />
                 </label>
             </form>
             <div className="container-add-url">

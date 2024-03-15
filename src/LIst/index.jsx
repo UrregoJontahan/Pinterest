@@ -17,8 +17,8 @@ export function ListImages() {
     return (
         <div className="counter-images">
             <div className="images">
-                {images.map((image, index) => (
-                    <img key={index} src={image.url} className="img-ramdom"/>
+                {images.map((image) => (
+                    <img key={image._id} src={image.image} className="img-ramdom"/>
                 ))}
             </div>
         </div>

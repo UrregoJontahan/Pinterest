@@ -7,6 +7,7 @@ import { Search } from './Search'
 import { UploadsImages } from './UploadsImages';
 import { ListImages } from './LIst';
 import { SaveUrl } from './SaveUrl';
+import { Form } from './Form';
 
 function App() {
 
