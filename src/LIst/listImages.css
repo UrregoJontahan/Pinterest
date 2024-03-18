@@ -1,24 +1,19 @@
 .counter-images{
-    display: flex;
     position: relative;
     top: 4.5rem;
-    width: 100%;
-    height: auto;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    padding: 1rem;
+    width: 98%;
+    height: auto ;
+    padding-bottom: 46px;
+    margin: 1em;
 }
 
 .images{
-    display: flex;
-    flex-wrap: wrap;
-    background-color: white;
-    width: 100%;
-    height: auto;
+    columns: 5 200px;
+    margin-bottom: 5px;
 }
 
 .img-ramdom{
-    display: flex;
-    padding: 1rem;
-}
+    max-width: 100%; 
+    column-gap: 5rem;
+    border-radius: 20px;
+} 

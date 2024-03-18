@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./buttonSubmit.css";
+import { redirect } from "react-router-dom";
 
 export function ButtonSubmit({ formData }) {
     const [loading, setLoading] = useState(false);
@@ -25,15 +26,18 @@ export function ButtonSubmit({ formData }) {
 
         } finally {
             setLoading(false);
+            window.location.reload();
         }
     };
 
+
     return (
-        <div className="btn-submit">
-            <p>Se guardarán los cambios</p>
-            <button className="btn-put" onClick={handleClickSubmit} disabled={loading}>
-                {loading ? "Enviando..." : "Publicar"}
-            </button>
-        </div>
+            <div className="btn-submit">
+                <p>Se guardarán los cambios</p>
+                <button className="btn-put" onClick={handleClickSubmit} >
+                    {loading ? "Publicando..." : "Publicar"}
+                </button>
+            </div>
+        
     );
 }

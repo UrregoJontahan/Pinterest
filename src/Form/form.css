@@ -17,7 +17,7 @@
     display: flex;
     width: 500px;
     height: 1000px;
-    justify-content:flex-end;
+    justify-content:flex-end; 
 }
 
 .image-select{
@@ -26,6 +26,7 @@
     width: auto;
     height: auto;
     border-radius: 25px;
+    background-color: black;
 }
 
 .input-text-data{

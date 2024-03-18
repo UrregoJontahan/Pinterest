@@ -2,9 +2,8 @@ import React from "react";
 import "./form.css"
 import { useState,useEffect } from "react";
 
-export function Form({onFormDataChange}){
+export function Form({onFormDataChange, imageSelected}){
 
-    const imageSelectedUpload = localStorage.getItem("selectedImage")
 
     const [formData, setFormData] = useState({
         title: "",
@@ -29,10 +28,13 @@ export function Form({onFormDataChange}){
         <div className="container-form">
             <div className="container-data-form-img">
                 <div className="img-selected">
-                    {imageSelectedUpload && <img className="image-select" 
-                                                 src={imageSelectedUpload} 
-                                                 name="image" 
-                                                 value={formData.image}/>}
+                    {imageSelected && <img
+                                className="image-select"
+                                src={imageSelected}
+                                type="image"
+                                name="image"
+                                value={formData.imageSelected}
+                                />}
                 </div>
                 <div className="input-text-data">
                     <p>Titulo</p>

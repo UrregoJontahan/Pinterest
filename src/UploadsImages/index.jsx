@@ -15,20 +15,16 @@ export function UploadsImages() {
         autor: "Jonathan",
         aspectRatio: 1,
         format: "jpg",
-        size: 5, //-> en MB
+        size: 5,
         downloads: 34
     });
-
-    const handleFileSelected = (file) => { // Blob
+   
+    const handleFileSelected = (file) => { 
         const reader = new FileReader();
-
-        //Esto se ejecuta cuando la función se llame 
         reader.onload = () => {
             const imageDataURL = reader.result;
             setSelectedImage(imageDataURL);
         };
-
-        //Aquí se está llamando
         reader.readAsDataURL(file);
     };
 
@@ -43,7 +39,7 @@ export function UploadsImages() {
                 <InputFile onFileSeleted={handleFileSelected} />
                 {selectedImage && (
                     <>
-                        <Form onFormDataChange={handleFormDataChange} />
+                        <Form onFormDataChange={handleFormDataChange} imageSelected={selectedImage}/>
                         <ButtonSubmit formData={formData} />
                     </>
                 )}

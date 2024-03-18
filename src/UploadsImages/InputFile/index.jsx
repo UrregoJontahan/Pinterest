@@ -13,7 +13,7 @@ export function InputFile( {onFileSeleted} ){
     return(
         <div className="create">
             <form className="file-upload-form">
-                <label for="file-img" className="file-upload-label">
+                <label  className="file-upload-label">
                     <div className="file-upload-design">
                             <FaArrowAltCircleUp size={30} />
                         <div className="text-button">
