@@ -1,0 +1,145 @@
+.container-images-selecte-suggestions{
+    display: flex;
+    flex-direction: column;
+    height: auto;
+}
+
+.page-pin{
+    position: absolute;
+    display: flex;
+    width: 100%;
+    height:800px;
+}
+
+.back-main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 6rem;
+    left: 1rem;
+    padding-left: 20px;
+    font-size: 20px;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+}
+
+.details-image{
+    position: relative;
+    width: 70%;
+    height: 600px;
+    top: 5rem;
+    display: flex;
+    flex-direction: row;
+    left: 15%;
+    border-radius: 35px;
+    padding: 20px;
+}
+
+.image-selected{
+    max-width: 60%;
+    max-height: 600px;
+    border-radius: 40px 0 0 40px ;
+}
+
+.box-comments{
+    max-width: 50%;
+    width: 50%;
+    height: 600px;
+    position: relative;
+    border-radius: 0 40px 40px 0;
+}
+
+.btn-save-image-selected{
+  position: absolute;
+  right: 2rem;
+  top: 1.5rem;
+  width: 5rem;
+  height: 2.5rem;
+  border-radius: 50px;
+  border: none;
+  background-color: red;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-save-image-selected:hover{
+  background-color: rgb(184, 10, 10);
+}
+
+/* h */
+
+
+.suggestion-images {
+    position: absolute;
+    top: 100%;
+    width: 80%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    left: 10%;
+  }
+  
+  .image-columns {
+   columns: 4 220px;
+  }
+  
+  .images {
+    columns: 4 200px;
+    margin-bottom: 5px;
+  }
+  
+  .image-container {
+    position: relative;
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .img-ramdom {
+    max-width: 100%;
+    border-radius: 20px;
+    transition: filter 0.2s ease;
+    max-height: 100%;
+  }
+  
+  .img-ramdom:hover {
+    cursor: pointer;
+    filter: brightness(50%);
+  }
+  
+  .btn-save-image {
+    position: absolute;
+    display: flex;
+    z-index: 2;
+    transform: translate(-50%, -50%);
+    top: 2rem;
+    left: 75%;
+    background-color: rgb(251, 4, 4);
+    border: none;
+    color: white;
+    border-radius: 50px;
+    padding: 6px 12px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+    opacity: 0;
+    height: 2.5rem;
+    width: 5rem;
+    margin-top: 5px;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .image-container:hover .btn-save-image {
+    opacity: 1;
+  }
+  
+  .btn-save-image:hover {
+    background-color: rgb(163, 8, 8);
+  }
+  

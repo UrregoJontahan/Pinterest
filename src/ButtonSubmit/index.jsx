@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./buttonSubmit.css";
-import { redirect } from "react-router-dom";
 
 export function ButtonSubmit({ formData }) {
     const [loading, setLoading] = useState(false);

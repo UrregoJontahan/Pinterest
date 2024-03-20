@@ -1,8 +1,4 @@
-
 .file-upload-form {
-    position: relative;
-    top: 1rem;
-    right: 30%;
     width: 100%;
     height: 100%;
     display: flex;
@@ -44,7 +40,7 @@
     align-items: center;
   }
 
-  .text-2{
+  .text{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -64,14 +60,12 @@
   .container-add-url{
     display: flex;
     width: 400px;
-    height: 5rem;
-    position: absolute;
-    left: 8rem;
-    top: 500px;
+    height: 4rem;
     border: none;
     border-top: 1px solid rgba(171, 170, 170, 0.531);
     justify-content: center;
     align-items: center;
+    margin-top: 1rem;
   }
 
   .add-url{

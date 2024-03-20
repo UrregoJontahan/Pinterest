@@ -1,25 +1,29 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext } from "react";
 import "./listImages.css";
-import { Api } from "../API";
+import { DataContext } from "../Provider";
+import { Link } from "react-router-dom";
 
-export function ListImages() {
-    const [images, setImages] = useState([]);
+export function ListImages( {showDetails} ) {
+    const {images, setSelectedImage} = useContext(DataContext)
 
-    useEffect(() => {
-        fetchData();
-    }, []);
-
-    const fetchData = async () => {
-        const data = await Api();
-        setImages(data);
-    };
-
+    const handleClickImage = (image) =>{
+        showDetails(image)
+        setSelectedImage(image)
+    }
+    
     return (
-        <div className="counter-images">
-            <div className="images">
-                {images.map((image) => (
-                    <img key={image._id} src={image.image} className="img-ramdom"/>
-                ))}
+        <div className="father-counter-images">
+            <div className="counter-images">
+                <div className="images">
+                    {images.map((image) => (
+                        <Link to={`page-pin/${image._id}`} key={image._id}>
+                            <div key={image._id} className="image-container">
+                                <img src={image.image} className="img-ramdom" onClick={()=>handleClickImage(image)}/>
+                            <button className="btn-save-image">Guardar</button>
+                        </div>
+                        </Link>
+                    ))}
+                </div>
             </div>
         </div>
     );

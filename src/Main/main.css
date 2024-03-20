@@ -1,0 +1,30 @@
+.counter-main-button{
+    display: flex;
+    padding: 0 16px;
+    height: 2.5rem;
+    width: 4rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-main{
+    display: flex;
+    padding: 0;
+    margin: 0;
+    border: none;
+    font-size: 20px;
+    font-weight:600;
+    cursor: pointer;
+    border-radius: 40px;
+    width: 5rem;
+    height: 2.5rem;
+    text-decoration:none;
+    color: black;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-main:focus{
+    background-color: black;
+    color: white;
+}

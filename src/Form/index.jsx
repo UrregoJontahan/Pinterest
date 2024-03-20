@@ -25,7 +25,7 @@ export function Form({onFormDataChange, imageSelected}){
     }, [formData]);
 
     return(
-        <div className="container-form">
+        <div className="container-form-image">
             <div className="container-data-form-img">
                 <div className="img-selected">
                     {imageSelected && <img

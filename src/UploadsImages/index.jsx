@@ -34,20 +34,25 @@ export function UploadsImages() {
 
     return (
         <div className="counter-father">
-            <div className="uploads-images">
-                <div className="create-pin">Crear Pin</div>
-                <InputFile onFileSeleted={handleFileSelected} />
-                {selectedImage && (
-                    <>
-                        <Form onFormDataChange={handleFormDataChange} imageSelected={selectedImage}/>
-                        <ButtonSubmit formData={formData} />
-                    </>
-                )}
-                <div className="more">
-                    <div className="option-more">+</div>
-                    <div className="show-box">➾</div>
+                <div className="big-container">
+                    <div className="create-pin">Crear Pin</div>
+                    <div className="more">
+                        <div className="show-box">➾</div>
+                        <div className="add-img">
+                            <span className="add-mor-image">+</span>
+                        </div>
+                    </div>
                 </div>
-            </div>
+               <div className="counter-form">
+                    <InputFile onFileSeleted={handleFileSelected} />
+                    {selectedImage && (
+                        <>
+                            <Form onFormDataChange={handleFormDataChange} imageSelected={selectedImage}/>
+                            <ButtonSubmit formData={formData} />
+                            {}
+                        </>
+                    )}
+               </div>
         </div>
     );
 }

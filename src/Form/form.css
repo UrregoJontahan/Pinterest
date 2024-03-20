@@ -1,38 +1,39 @@
-.container-form{
-    position: absolute;
-    top: 9rem;
-    left: 5.5%;
-    z-index: 7;
-    width: 94%;
-    height: 1000px;
-    background-color: rgb(255, 255, 255);
-    display:flex;
-    padding: .5rem;
+.container-form-image{
+    position: fixed;
+    width: 80%;
+    height: 800px;
+    right: 0;
+    top: 10.2rem;
+    background-color: white;
+}
+
+.container-data-form-img{
+    display: flex;
+    justify-content: flex-start;
     flex-direction: row;
 }
 
 .img-selected{
-    position: absolute;
-    top: 1rem;
     display: flex;
-    width: 500px;
-    height: 1000px;
-    justify-content:flex-end; 
+    padding-top: 15px;
+    position: relative;
+    left: 5rem;
+
 }
 
 .image-select{
-    max-width: 300px;
-    max-height: 300px;
+    max-width: 400px;
+    max-height: 400px;
     width: auto;
     height: auto;
     border-radius: 25px;
-    background-color: black;
 }
 
 .input-text-data{
-    position: relative;
     display: flex;
-    left: 550px;
+    position: relative;
+    left: 10rem;
+    top: 2rem;
     flex-direction: column;
     width: 600px;
     font-size: 12px;
