@@ -32,7 +32,7 @@
 .input-text-data{
     display: flex;
     position: relative;
-    left: 10rem;
+    left: 6rem;
     top: 2rem;
     flex-direction: column;
     width: 600px;

@@ -1,13 +1,13 @@
-const URL_API = "http://localhost:4000" // Se cambia url del api a localhost
+const URL_API = "http://localhost:4000" 
 
-export async function Api() { // -> getImagesfromApi
+export async function getImagesfromApi() { 
     const response = await fetch(`${URL_API}/pinterest`);
     const data = await response.json();
 
     return data; 
 }
 
-export async function ApiId(id) { // -> getImageById
+export async function getImageById(id) { 
     const response = await fetch(`${URL_API}/pinterest/${id}`);
     const data = await response.json();
 

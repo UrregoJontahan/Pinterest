@@ -1,9 +1,11 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useContext } from "react";
 import "./search.css";
+import { DataContext } from "../Provider";
 
 export function Search() {
   const [clickInX, setClickInX] = useState(false);
   const inputRef = useRef(null);
+  const { handleSearchChange, filtered } = useContext(DataContext)
 
   useEffect(() => {
     const handleClickOutside = (e) => {
@@ -17,12 +19,15 @@ export function Search() {
     };
 
     document.addEventListener("mousedown", handleClickOutside);
-    // use href instead de native methods beowser
 
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
+
+  const onChangeHandleClick=(e)=>{
+    handleSearchChange(e.target.value)
+}
 
   return (
     <div className="counter-input">
@@ -32,18 +37,29 @@ export function Search() {
           className="btn-search"
           placeholder="🔍 Buscar"
           onClick={() => setClickInX(true)}
-          ref={inputRef} 
+          onChange={onChangeHandleClick}
+          ref={inputRef}
         />
-        </div>
+      </div>
 
       <div className="container-x-cancel">
-        {clickInX && <button 
-        className="btn-x-cancel"
-        onClick={()=>setClickInX(false)}
-        >x
-          </button>}
+        {clickInX && (
+          <button className="btn-x-cancel" onClick={() => setClickInX(false)}>
+            x
+          </button>
+        )}
       </div>
-        {clickInX && <div className="container-answers"></div>}
+
+      {clickInX && (
+        <div className="container-answers">
+          <div className="results">
+            {filtered.map(({title, category, tags})=>(<p>{title && category && tags}</p>))}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
+
+
+

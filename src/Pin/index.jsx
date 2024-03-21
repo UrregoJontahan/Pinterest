@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./pin.css";
-import { ButtonBack } from "../ButtonBack";
+import { ButtonHomePage } from "../ButtonHomePage";
 import { useParams, Link } from "react-router-dom";
 import { DataContext } from "../Provider";
-import { ApiId } from "../API";
+import { getImageById } from "../API";
 
 export function Pin() {
   const { images } = useContext(DataContext);
@@ -11,18 +11,19 @@ export function Pin() {
   const [selectedImage, setSelectedImage] = useState(null);
 
   useEffect(() => {
-    fetchApi(id); 
+    fetchApi(currentId); 
+    scrollTo(0,0)
   }, [currentId]); 
 
   const fetchApi = async (id) => {
-      const result = await ApiId(id);
+      const result = await getImageById(id);
       setSelectedImage(result);
   };
 
   return (
     <div className="container-images-selecte-suggestions">
       <div className="page-pin">
-        <ButtonBack />
+        <ButtonHomePage />
         <div className="details-image">
           {selectedImage && selectedImage.image && (
             <img
@@ -40,12 +41,11 @@ export function Pin() {
         <div className="image-columns">
           {images.map(({image, _id}) => (
             <Link 
-              to={`/page-pin${_id}`}
+              to={`/page-pin/${_id}`}
               key={_id}  className="image-container">
               <img
                 src={image}
                 className="img-ramdom"
-                onClick={() => handleImageClick(_id)}
               />
               <button className="btn-save-image">Guardar</button>
             </Link>

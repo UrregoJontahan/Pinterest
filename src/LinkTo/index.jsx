@@ -1,14 +1,14 @@
 import React from "react";
-import "./buttonCreate.css";
+import "./linkTo.css";
 import { Link } from "react-router-dom";
 
-export function ButtonCreate(){ // rename to Link or LinkToCreate
+export function LinkTo( {route, buttonText} ){ 
 
     return(
         <div className="counter-create-button">
-            <Link to={'/uploads-img'}
+            <Link to={route}
                 className="btn-create"
-                >Crear
+                >{buttonText}
             </Link>
         </div>
     )

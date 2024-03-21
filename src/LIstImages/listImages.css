@@ -66,3 +66,13 @@
 .btn-save-image:hover{
     background-color: rgb(163, 8, 8);
 }
+
+.icon-heart{
+    color: white;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.icon-heart:hover{
+    color: black;
+}
