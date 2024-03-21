@@ -1,27 +1,22 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./pin.css";
 import { ButtonBack } from "../ButtonBack";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { DataContext } from "../Provider";
 import { ApiId } from "../API";
 
 export function Pin() {
   const { images } = useContext(DataContext);
   const { id: currentId } = useParams(); 
-  const navigate = useNavigate(); 
   const [selectedImage, setSelectedImage] = useState(null);
 
   useEffect(() => {
-    fetchApi(currentId); 
+    fetchApi(id); 
   }, [currentId]); 
 
   const fetchApi = async (id) => {
       const result = await ApiId(id);
       setSelectedImage(result);
-  };
-
-  const handleImageClick = (id) => {
-    window.location.reload(navigate(`/page-pin/${id}`))
   };
 
   return (
@@ -43,15 +38,17 @@ export function Pin() {
       </div>
       <div className="suggestion-images">
         <div className="image-columns">
-          {images.map((image) => (
-            <div key={image._id} className="image-container">
+          {images.map(({image, _id}) => (
+            <Link 
+              to={`/page-pin${_id}`}
+              key={_id}  className="image-container">
               <img
-                src={image.image}
+                src={image}
                 className="img-ramdom"
-                onClick={() => handleImageClick(image._id)}
+                onClick={() => handleImageClick(_id)}
               />
               <button className="btn-save-image">Guardar</button>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

@@ -4,13 +4,14 @@ import { useState,useEffect } from "react";
 
 export function Form({onFormDataChange, imageSelected}){
 
-
-    const [formData, setFormData] = useState({
+    const initialState = {
         title: "",
         category: "",
         tags: [],
         image:"",
-    });
+    }
+
+    const [formData, setFormData] = useState(initialState);
 
     const handleChange = (e) => {
         const { name, value } = e.target;

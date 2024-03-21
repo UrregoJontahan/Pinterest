@@ -17,6 +17,7 @@ export function Search() {
     };
 
     document.addEventListener("mousedown", handleClickOutside);
+    // use href instead de native methods beowser
 
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);

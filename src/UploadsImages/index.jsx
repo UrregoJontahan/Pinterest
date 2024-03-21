@@ -49,7 +49,6 @@ export function UploadsImages() {
                         <>
                             <Form onFormDataChange={handleFormDataChange} imageSelected={selectedImage}/>
                             <ButtonSubmit formData={formData} />
-                            {}
                         </>
                     )}
                </div>

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { createImage } from "../API";
 import "./buttonSubmit.css";
 
 export function ButtonSubmit({ formData }) {
@@ -11,13 +12,7 @@ export function ButtonSubmit({ formData }) {
             let { tags = [] } = formData;
             let toList = tags.split(",")
             formData.tags = toList
-            const response = await fetch("http://localhost:4000/pinterest/create", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(formData),
-            });
+            const response = await createImage(formData)
 
             if (!response.ok) {
                 throw new Error("Error al enviar los datos");
@@ -25,7 +20,9 @@ export function ButtonSubmit({ formData }) {
 
         } finally {
             setLoading(false);
-            window.location.reload();
+            window.location.reload(); 
+            // Para limpiar los datos necesita recarga la página
+            // solo limpia los estados: regresa los estados al punto inicial
         }
     };
 
