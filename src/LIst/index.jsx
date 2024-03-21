@@ -16,12 +16,12 @@ export function ListImages( {showDetails} ) {
             <div className="counter-images">
                 <div className="images">
                     {images.map((image) => (
-                        <Link to={`page-pin/${image._id}`} key={image._id}>
-                            <div key={image._id} className="image-container">
+                        <div key={image._id} className="image-container">
+                                <Link to={`page-pin/${image._id}`} key={image._id}>
                                 <img src={image.image} className="img-ramdom" onClick={()=>handleClickImage(image)}/>
+                            </Link>
                             <button className="btn-save-image">Guardar</button>
                         </div>
-                        </Link>
                     ))}
                 </div>
             </div>

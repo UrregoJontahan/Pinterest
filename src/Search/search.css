@@ -73,11 +73,11 @@
 }
 
 .container-answers{
-    width: 68%;
+    width: 65%;
     height: 500px;
-    background-color: white;
+    background-color: rgb(32, 31, 31);
     position: fixed;
     top: 3.8rem;
-    left: 13.3%;
+    left: 20%;
     border-radius:15px ;
 }
