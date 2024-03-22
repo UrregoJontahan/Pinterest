@@ -1,15 +1,20 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import "./listImages.css";
 import { Link } from "react-router-dom";
-import { FaRegHeart } from "react-icons/fa";
 import { DataContext } from "../Provider";
+import { FaHeart } from "react-icons/fa6";
 
 export function ListImages() {
     const {filtered} = useContext(DataContext)
+    const [like, setLike] = useState(false)
 
-  if (!filtered) {
-    return <div>Cargando...</div>;
-  }
+    const handleclickLike = () =>{
+        setLike(true)
+        setTimeout(()=>{
+            setLike(false)
+        },1500)
+    }
+
 
   return (
     <div className="father-counter-images">
@@ -20,13 +25,19 @@ export function ListImages() {
               <Link to={`page-pin/${_id}`} key={_id}>
                 <img src={image} className="img-ramdom" />
               </Link>
-              <button className="btn-save-image">
-                <FaRegHeart className="icon-heart" />
+              <button className="btn-save-image" onClick={handleclickLike}>
+                <FaHeart className="icon-heart" />
               </button>
             </div>
           ))}
         </div>
       </div>
+          {like && (
+            <div className="alert-like" onClick={() => setLike(false)}>
+                <p>Te gusta esta imagen ❤️</p>
+            </div>
+            
+            )}
     </div>
   );
 }

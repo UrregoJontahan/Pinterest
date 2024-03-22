@@ -6,7 +6,7 @@ import { DataContext } from "../Provider";
 import { getImageById } from "../API";
 
 export function Pin() {
-  const { images } = useContext(DataContext);
+  const {related ,filtered}  = useContext(DataContext);
   const { id: currentId } = useParams(); 
   const [selectedImage, setSelectedImage] = useState(null);
 
@@ -39,7 +39,7 @@ export function Pin() {
       </div>
       <div className="suggestion-images">
         <div className="image-columns">
-          {images.map(({image, _id}) => (
+        {related(selectedImage?.category, selectedImage?.tags.join(" ")).map(({image, _id}) => (
             <Link 
               to={`/page-pin/${_id}`}
               key={_id}  className="image-container">
