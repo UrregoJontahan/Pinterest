@@ -47,28 +47,6 @@ function Provider( {children} ){
     });
 };
 
-
-// const related = (selectedCategory, selectedTags) => {
-//     const filteredImages = images.filter(({ category, tags }) => {
-//         if (selectedCategory) {
-//             const categoryArray = selectedCategory.split(" ");
-//             if (!Array.isArray(selectedTags)) {
-//                 selectedTags = selectedTags ? selectedTags.split(" ") : [];
-//             }
-//             return (
-//                 categoryArray.some(cat => category.includes(cat)) &&
-//                 selectedTags.every(tag => tags.includes(tag))
-//             );
-//         }
-//         return true; // Si no hay categoría seleccionada, mostrar todas las imágenes
-//     });
-
-//     // // Filtrar las imágenes restantes que no coinciden
-//     // const remainingImages = images.filter(({ _id }) => !filteredImages.some(img => img._id === _id));
-
-//     // // Concatenar las imágenes filtradas con las restantes
-//     // return [...filteredImages, ...remainingImages];
-// }
     return(
         <DataContext.Provider value={{images, selectedImage , setSelectedImage, handleSearchChange, filtered, related}}>
             {children}
