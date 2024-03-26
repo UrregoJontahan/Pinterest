@@ -4,8 +4,9 @@ import { DataContext } from "../Provider";
 
 export function Search() {
   const [clickInX, setClickInX] = useState(false);
+  const [state, setState] = useState("")
   const inputRef = useRef(null);
-  const { handleSearchChange, filtered } = useContext(DataContext)
+  const { handleSearchChange} = useContext( DataContext);
 
   useEffect(() => {
     const handleClickOutside = (e) => {
@@ -25,41 +26,42 @@ export function Search() {
     };
   }, []);
 
-  const onChangeHandleClick=(e)=>{
-    handleSearchChange(e.target.value)
-}
+  const onChangeHandleClick = (e) => {
+    handleSearchChange(e.target.value);
+    setState(e.target.value)
+  };
+
+  const resetSearch = () =>{
+    setState("")
+    setClickInX(false)
+    handleSearchChange("")
+  }
 
   return (
     <div className="counter-input">
       <div className="container-input-answer">
         <input
-          type="search"
+          type="text"
           className="btn-search"
           placeholder="🔍 Buscar"
           onClick={() => setClickInX(true)}
           onChange={onChangeHandleClick}
           ref={inputRef}
+          value={state}
         />
       </div>
 
       <div className="container-x-cancel">
         {clickInX && (
-          <button className="btn-x-cancel" onClick={() => setClickInX(false)}>
+          <button className="btn-x-cancel" onClick={resetSearch}>
             x
           </button>
         )}
       </div>
-
-      {clickInX && (
-        <div className="container-answers">
-          <div className="results">
-            {filtered.map(({title, category, tags})=>(<p>{title && category && tags}</p>))}
-          </div>
-        </div>
-      )}
     </div>
   );
 }
+
 
 
 

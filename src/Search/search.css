@@ -75,9 +75,27 @@
 .container-answers{
     width: 65%;
     height: auto;
+    max-height: 70%;
     background-color: white;
     position: fixed;
     top: 3.8rem;
     left: 20%;
     border-radius:15px ;
+    padding: 10px 16px;
+    overflow: hidden;
+}
+
+.list-tags-category-title{
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.select-list{
+    list-style: none;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.select-list:hover{
+    background-color: rgba(70, 206, 255, 0.237);
 }

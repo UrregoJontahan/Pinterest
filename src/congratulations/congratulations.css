@@ -1,0 +1,258 @@
+.container-confeti{
+    position: relative;
+    bottom: 15rem;
+    z-index: 10;
+}
+
+  .confeti-a {
+    position: relative;
+    width: 10px;
+    height: 10px;
+    background-color: #f00; /* Color del confeti */
+    border-radius: 50%;
+    animation: explode-a 1.5s forwards ;
+    z-index:10;
+  }
+
+  .confeti-b {
+    position: relative;
+    width: 10px;
+    height: 10px;
+    background-color: rgb(255, 0, 234); /* Color del confeti */
+    border-radius: 50%;
+    animation: explode-b 1.5s forwards ;
+    z-index:5;
+  }
+
+  .confeti-c {
+    position: relative;
+    width: 10px;
+    height: 10px;
+    background-color: rgb(255, 238, 0); /* Color del confeti */
+    border-radius: 50%;
+    animation: explode-c 1.5s forwards ;
+    z-index:10;
+  }
+
+  .confeti-d {
+    position: relative;
+    width: 10px;
+    height: 10px;
+    background-color: rgba(4, 0, 255, 0.767); /* Color del confeti */
+    border-radius: 50%;
+    animation: explode-d 1.5s forwards ;
+    z-index:10;
+  }
+
+  .confeti-e {
+    position: relative;
+    width: 10px;
+    height: 10px;
+    background-color: rgb(136, 255, 0); /* Color del confeti */
+    border-radius: 50%;
+    animation: explode-e 1.5s forwards ;
+    z-index:10;
+  }
+  
+  .confeti-f {
+    position: relative;
+    width: 10px;
+    height: 10px;
+    background-color: rgb(0, 247, 255); /* Color del confeti */
+    border-radius: 50%;
+    animation: explode-f 1.5s forwards ;
+    z-index:10;
+  }
+
+  .confeti-g {
+    position: relative;
+    width: 10px;
+    height: 10px;
+    background-color: rgb(255, 123, 0); /* Color del confeti */
+    border-radius: 50%;
+    animation: explode-g 1.5s forwards ;
+    z-index:10;
+  }
+
+  .confeti-h {
+    position: relative;
+    width: 10px;
+    height: 10px;
+    background-color: rgb(255, 0, 212); /* Color del confeti */
+    border-radius: 50%;
+    animation: explode-h 1.5s forwards ;
+    z-index:10;
+  }
+
+  .confeti-i {
+    position: relative;
+    width: 10px;
+    height: 10px;
+    background-color: rgb(0, 110, 255); /* Color del confeti */
+    border-radius: 50%;
+    animation: explode-i 1.5s forwards ;
+    z-index:10;
+  }
+
+  .confeti-j {
+    position: relative;
+    width: 10px;
+    height: 10px;
+    background-color: rgb(255, 0, 85); /* Color del confeti */
+    border-radius: 50%;
+    animation: explode-j .5s forwards ;
+    z-index:10;
+  }
+
+  .confeti-k {
+    position: relative;
+    width: 10px;
+    height: 10px;
+    background-color: rgb(0, 255, 242); /* Color del confeti */
+    border-radius: 50%;
+    animation: explode-k .8s forwards ;
+    z-index:10;
+  }
+
+  .confeti-l {
+    position: relative;
+    width: 10px;
+    height: 10px;
+    background-color: rgb(225, 0, 255); /* Color del confeti */
+    border-radius: 50%;
+    animation: explode-l 1s forwards ;
+    z-index:10;
+  }
+
+  /* Animaciones de explosión */
+  @keyframes explode-a {
+  0% {
+    opacity: 1;
+    transform: translate(0, 250px) rotate(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(calc(-50% + 150px), calc(-50% + 150px)) rotate(720deg);
+  }
+}
+
+@keyframes explode-b {
+  0% {
+    opacity: 1;
+    transform: translate(0, 250px) rotate(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(calc(-50% + 100px), calc(-50% + 100px)) rotate(720deg);
+  }
+}
+
+@keyframes explode-c {
+  0% {
+    opacity: 1;
+    transform: translate(0, 250px) rotate(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(calc(-50% + 200px), calc(-50% + 200px)) rotate(720deg);
+  }
+}
+
+@keyframes explode-d {
+  0% {
+    opacity: 1;
+    transform: translate(0, 250px) rotate(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(calc(-50% + 50px), calc(-50% + 50px)) rotate(720deg);
+  }
+}
+
+@keyframes explode-e {
+  0% {
+    opacity: 1;
+    transform: translate(0, 250px) rotate(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(calc(-50% + 250px), calc(-50% + 250px)) rotate(720deg);
+  }
+}
+
+@keyframes explode-f {
+  0% {
+    opacity: 1;
+    transform: translate(30px, 250px) rotate(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(calc(-50% + 155px), calc(-50% + 150px)) rotate(320deg);
+  }
+}
+
+@keyframes explode-g {
+  0% {
+    opacity: 1;
+    transform: translate(0, 250px) rotate(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(calc(-50% + 100px), calc(-50% + 100px)) rotate(720deg);
+  }
+}
+
+@keyframes explode-h {
+  0% {
+    opacity: 1;
+    transform: translate(0, 250px) rotate(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(calc(-50% + 200px), calc(-50% + 200px)) rotate(720deg);
+  }
+}
+
+@keyframes explode-i {
+  0% {
+    opacity: 1;
+    transform: translate(0, 250px) rotate(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(calc(-50% + 50px), calc(-50% + 50px)) rotate(720deg);
+  }
+}
+
+@keyframes explode-j {
+  0% {
+    opacity: 1;
+    transform: translate(0, 250px) rotate(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(calc(-50% + 250px), calc(-50% + 250px)) rotate(720deg);
+  }
+}
+
+@keyframes explode-k {
+  0% {
+    opacity: 1;
+    transform: translate(0, 250px) rotate(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(calc(-50% + 250px), calc(-50% + 250px)) rotate(720deg);
+  }
+}
+
+@keyframes explode-l {
+  0% {
+    opacity: 1;
+    transform: translate(0, 250px) rotate(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(calc(-50% + 250px), calc(-50% + 250px)) rotate(720deg);
+  }
+}

@@ -17,7 +17,7 @@ function App() {
     <BrowserRouter>
         <Header>
           <Logo/>
-          <LinkTo route={'/'} buttonText={"Inicio"}/>
+          <LinkTo route={''} buttonText={"Inicio"}/>
           <LinkTo route={'/uploads-img'} buttonText={"Crear"}/>
           <Search/>
         </Header>

@@ -14,7 +14,7 @@
 }
 
 .images {
-    columns: 5 200px;
+    columns: 4 200px;
     margin-bottom: 5px;
 }
 
@@ -76,17 +76,3 @@
     font-size: 25px;
 }
 
-.alert-like{
-    z-index: 10;
-    position: fixed;
-    display: flex;
-    width: 400px;
-    height: 2rem;
-    bottom: 2rem;
-    background-color: rgba(105, 103, 103, 0.904);
-    justify-content: center;
-    align-items: center;
-    color: white;
-    border-radius: 50px;
-
-}

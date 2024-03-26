@@ -26,32 +26,12 @@ function Provider( {children} ){
       category.toLowerCase().includes(searchImages.toLowerCase()) ||
       tags.some(tag => tag.toLowerCase().includes(searchImages.toLowerCase()))
   );
-
-
-  const related = (selectedCategory, selectedTags) => {
-    if (!selectedCategory && !selectedTags) {
-      return [];
-    }
   
-    const selectedCategoryArray = selectedCategory ? selectedCategory.split(" ") : [];
-    const selectedTagsArray = selectedTags ? selectedTags.split(" ") : [];
-    
-    return images.filter(image=> {
-      const imageCategoryArray = image.category.split(" ");
-      const imageTagsArray = image.tags.map(tag => tag.toLowerCase());
-      return (
-        selectedCategoryArray.some(category => imageCategoryArray.includes(category.toLowerCase())) &&
-        selectedTagsArray.some(tag => imageTagsArray.includes(tag.toLowerCase()))  
-        
-      );
-    });
-};
-
     return(
-        <DataContext.Provider value={{images, selectedImage , setSelectedImage, handleSearchChange, filtered, related}}>
+        <DataContext.Provider value={{images, selectedImage , setSelectedImage, handleSearchChange, filtered }}>
             {children}
         </DataContext.Provider>
     )
 }
 
-export {Provider, DataContext}
+export {Provider, DataContext} 
