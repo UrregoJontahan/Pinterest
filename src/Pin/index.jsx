@@ -8,7 +8,7 @@ import { FaHeart } from "react-icons/fa6";
 import { Confeti } from "../congratulations";
 
 export function Pin() {
-  const { images}  = useContext(DataContext);
+  const { categoriesMap }  = useContext(DataContext);
   const { id: currentId } = useParams(); 
   const [selectedImage, setSelectedImage] = useState(null);
 
@@ -19,7 +19,7 @@ export function Pin() {
       setTimeout(() => {
           setShowConfeti(false);
       }, 1000); 
-  };
+  };  
 
   useEffect(() => {
     fetchApi(currentId); 
@@ -31,41 +31,62 @@ export function Pin() {
       setSelectedImage(result);
   };
 
-  let newArrayCategories = [];
-  let newArrayTags = [];
-  let imagesWithMatches = [];
-  let imagesThatNotMatch = []
-  
-  images.map((image) => {
-    const categoryArray = image?.category;
-    const tagsArray = image?.tags;
-    newArrayCategories.push(categoryArray);
-    newArrayTags.push(tagsArray)
-    
-    const categoryOfImageSelected = selectedImage?.category.split(",");
-    const tagsOfImagesSelected = selectedImage?.tags;
-    
-    if ( categoryOfImageSelected && categoryArray.split(",").some(category=> categoryOfImageSelected.includes(category))) {
-      imagesWithMatches.push(image);
-    } else {
-      imagesThatNotMatch.push(image)
-    }
-    
-    if (tagsOfImagesSelected && tagsArray.some(tags => tagsOfImagesSelected.includes(tags))){
-      imagesWithMatches.push(image)
-    } else {
-      imagesThatNotMatch.push(image)
-    }
-  });
-  
-  let concatenatedImages=[...imagesWithMatches, ...imagesThatNotMatch]
 
-  let imagesUniques =  concatenatedImages.filter((value, index, self)=>{
-    return self.indexOf(value) === index
+// const categoriesMap = new Map();
 
-    })
+// useEffect(() => {
+//   if (selectedImage) {
+//     processImages(selectedImage);
+//   }
+// }, [selectedImage]);
+
+// function processImages(image) {
+//     images.forEach(category => {
+//       if(categoriesMap.has(category) === selectedImage){
+//         categoriesMap.get(category).push(image)
+//       } else {
+//         categoriesMap.set(category,[image])
+//       }
+//     });
+// }
+
+// console.log(categoriesMap)
+
+  // let newArrayCategories = [];
+  // let newArrayTags = [];
+  // let imagesWithMatches = [];
+  // let imagesThatNotMatch = []
+  
+  // images.map((image) => {
+  //   const categoryArray = image?.category;
+  //   const tagsArray = image?.tags;
+  //   newArrayCategories.push(categoryArray);
+  //   newArrayTags.push(tagsArray)
     
-  let allImages= imagesUniques
+  //   const categoryOfImageSelected = selectedImage?.category.split(",");
+  //   const tagsOfImagesSelected = selectedImage?.tags;
+    
+  //   if ( categoryOfImageSelected && categoryArray.split(",").some(category=> categoryOfImageSelected.includes(category))) {
+  //     imagesWithMatches.push(image);
+  //   } else {
+  //     imagesThatNotMatch.push(image)
+  //   }
+    
+  //   if (tagsOfImagesSelected && tagsArray.some(tags => tagsOfImagesSelected.includes(tags))){
+  //     imagesWithMatches.push(image)
+  //   } else {
+  //     imagesThatNotMatch.push(image)
+  //   }
+  // });
+  
+  // let concatenatedImages=[...imagesWithMatches, ...imagesThatNotMatch]
+
+  // let imagesUniques =  concatenatedImages.filter((value, index, self)=>{
+  //   return self.indexOf(value) === index
+
+  //   })
+    
+  // let allImages= imagesUniques
   
   return (
     <div className="container-images-selecte-suggestions">
@@ -88,25 +109,42 @@ export function Pin() {
       </div>
       <div className="suggestion-images">
         <div className="image-columns">
-        {allImages.map(({image, _id}) => (
-            <div className="image-container">
-              <Link 
-              to={`/page-pin/${_id}`}
-              key={_id}  >
-              <img
-                src={image}
-                className="img-ramdom"
-              />
-            </Link>
-              <button className="btn-save-image" onClick={handleLikeClick}>
-              <FaHeart className="icon-heart" />
-                {showConfeti && <Confeti/>}
-              </button>
-            </div>
-          ))}
+        {Array.from(categoriesMap).map(([category, images]) => (
+  <div key={category}>
+    <h2>{category}</h2>
+    {images.map(({ image, _id }) => (
+      <div key={_id} className="image-container">
+        <Link to={`/page-pin/${_id}`}>
+          <img src={image} className="img-ramdom" />
+        </Link>
+        <button className="btn-save-image" onClick={handleLikeClick}>
+          <FaHeart className="icon-heart" />
+          {showConfeti && <Confeti />}
+        </button>
+      </div>
+    ))}
+  </div>
+))}
+
         </div>
       </div>
     </div>
   );
 }
 
+// {allImages.map(({image, _id}) => (
+//   <div className="image-container">
+//     <Link 
+//     to={`/page-pin/${_id}`}
+//     key={_id}  >
+//     <img
+//       src={image}
+//       className="img-ramdom"
+//     />
+//   </Link>
+//     <button className="btn-save-image" onClick={handleLikeClick}>
+//     <FaHeart className="icon-heart" />
+//       {showConfeti && <Confeti/>}
+//     </button>
+//   </div>
+// ))}

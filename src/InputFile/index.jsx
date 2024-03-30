@@ -28,7 +28,7 @@ export function InputFile( {onFileSeleted} ){
                     </div>
                     <input id="file-img" 
                            type="file" 
-                           accept="image/*,video/*" 
+                           accept="image/*,video/*,.gif"
                            onChange={handleFileChange} />
                 </label>
             </form>

@@ -89,10 +89,8 @@
     .create{
         display: flex;
         position: absolute;
-        width: auto;
-        height: 500px;
         align-items: center;
-        top: 7.5rem;
+        background-color: black;
     }
     
     .create-pin{
