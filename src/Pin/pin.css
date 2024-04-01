@@ -88,10 +88,12 @@
   }
   
   .image-columns {
-    display: grid;
+    /* display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
     grid-auto-rows: 400px; 
-    grid-gap: 15px; 
+    grid-gap: 15px;  */
+    columns: 4 200px;
+    margin-bottom: 5px;
   }
   
   .img-ramdom {
