@@ -39,6 +39,7 @@ export function Pin() {
     });
   }
 
+
   const uniqueImages = Object.values(uniqueImagesMap);
 
   return (
