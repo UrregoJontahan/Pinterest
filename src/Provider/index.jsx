@@ -34,8 +34,6 @@ function Provider( {children} ){
         setCategoriesMap(newCategoriesMap);
       };
 
-      console.log(categoriesMap)
-
     const handleSearchChange = (searchimg) => {
         setSearchImages(searchimg);
       };
