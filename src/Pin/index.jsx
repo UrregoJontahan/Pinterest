@@ -30,17 +30,42 @@ export function Pin() {
       setSelectedImage(result);
   };
 
-  const uniqueImagesMap = {};
-  for (const [_, images] of categoriesMap) {
-    images.forEach((image) => {
-      if (!uniqueImagesMap.hasOwnProperty(image._id)) {
-        uniqueImagesMap[image._id] = image;
+const uniqueImagesSet = new Set();
+
+if (selectedImage && selectedImage.category) {
+  const selectedCategories = selectedImage.category.split(',');
+
+  for (const category of selectedCategories) {
+    if (categoriesMap.has(category)) {
+      const images = categoriesMap.get(category);
+      for (const image of images) {
+        uniqueImagesSet.add(image);
       }
-    });
+    }
   }
+} else {
+  const tagsImages = selectedImage?.tags.split(',');
+  if (tagsImages) {
+    for (const tag of tagsImages) {
+      if (categoriesMap.has(tag)) {
+        const images = categoriesMap.get(tag); 
+        for (const image of images) {
+          uniqueImagesSet.add(image);
+        }
+      }
+    }
+  }
+}
 
+for (const [, images] of categoriesMap) {
+  for (const image of images) {
+    if (!uniqueImagesSet.has(image)) {
+      uniqueImagesSet.add(image);
+    }
+  }
+}
 
-  const uniqueImages = Object.values(uniqueImagesMap);
+const uniqueImages = Array.from(uniqueImagesSet);
 
   return (
     <div className="container-images-selecte-suggestions">
@@ -79,76 +104,3 @@ export function Pin() {
     </div>
   );  
 }
-
-// {allImages.map(({image, _id}) => (
-//   <div className="image-container">
-//     <Link 
-//     to={`/page-pin/${_id}`}
-//     key={_id}  >
-//     <img
-//       src={image}
-//       className="img-ramdom"
-//     />
-//   </Link>
-//     <button className="btn-save-image" onClick={handleLikeClick}>
-//     <FaHeart className="icon-heart" />
-//       {showConfeti && <Confeti/>}
-//     </button>
-//   </div>
-// ))}
-
-// const categoriesMap = new Map();
-
-// useEffect(() => {
-//   if (selectedImage) {
-//     processImages(selectedImage);
-//   }
-// }, [selectedImage]);
-
-// function processImages(image) {
-//     images.forEach(category => {
-//       if(categoriesMap.has(category) === selectedImage){
-//         categoriesMap.get(category).push(image)
-//       } else {
-//         categoriesMap.set(category,[image])
-//       }
-//     });
-// }
-
-// console.log(categoriesMap)
-
-  // let newArrayCategories = [];
-  // let newArrayTags = [];
-  // let imagesWithMatches = [];
-  // let imagesThatNotMatch = []
-  
-  // images.map((image) => {
-  //   const categoryArray = image?.category;
-  //   const tagsArray = image?.tags;
-  //   newArrayCategories.push(categoryArray);
-  //   newArrayTags.push(tagsArray)
-    
-  //   const categoryOfImageSelected = selectedImage?.category.split(",");
-  //   const tagsOfImagesSelected = selectedImage?.tags;
-    
-  //   if ( categoryOfImageSelected && categoryArray.split(",").some(category=> categoryOfImageSelected.includes(category))) {
-  //     imagesWithMatches.push(image);
-  //   } else {
-  //     imagesThatNotMatch.push(image)
-  //   }
-    
-  //   if (tagsOfImagesSelected && tagsArray.some(tags => tagsOfImagesSelected.includes(tags))){
-  //     imagesWithMatches.push(image)
-  //   } else {
-  //     imagesThatNotMatch.push(image)
-  //   }
-  // });
-  
-  // let concatenatedImages=[...imagesWithMatches, ...imagesThatNotMatch]
-
-  // let imagesUniques =  concatenatedImages.filter((value, index, self)=>{
-  //   return self.indexOf(value) === index
-
-  //   })
-    
-  // let allImages= imagesUniques
