@@ -30,42 +30,42 @@ export function Pin() {
       setSelectedImage(result);
   };
 
-  const uniqueImagesMap = {};
+const uniqueImagesSet = new Set();
 
-  if (selectedImage && selectedImage.category) {
-    const selectedCategories = selectedImage.category.split(',');
-  
-    for (const category of selectedCategories) {
-      if (categoriesMap.has(category)) {
-        const images = categoriesMap.get(category);
-        images.forEach((image) => {
-          if (!uniqueImagesMap.hasOwnProperty(image._id)) {
-            uniqueImagesMap[image._id] = image;
-          }
-        });
+if (selectedImage && selectedImage.category) {
+  const selectedCategories = selectedImage.category.split(',');
+
+  for (const category of selectedCategories) {
+    if (categoriesMap.has(category)) {
+      const images = categoriesMap.get(category);
+      for (const image of images) {
+        uniqueImagesSet.add(image);
       }
     }
-  } else {
-    const tagsImages = selectedImage?.tags.split(',');
-  
-    console.log(tagsImages);
-  
-    if (tagsImages) {
-      for (const tag of tagsImages) {
-        if (categoriesMap.has(tag)) {
-          const images = categoriesMap.get(tag);
-          images.forEach((image) => {
-            if (!uniqueImagesMap.hasOwnProperty(image._id)) {
-              uniqueImagesMap[image._id] = image;
-            }
-          });
+  }
+} else {
+  const tagsImages = selectedImage?.tags.split(',');
+  if (tagsImages) {
+    for (const tag of tagsImages) {
+      if (categoriesMap.has(tag)) {
+        const images = categoriesMap.get(tag); 
+        for (const image of images) {
+          uniqueImagesSet.add(image);
         }
       }
     }
   }
-  
-  
-  const uniqueImages = Object.values(uniqueImagesMap);
+}
+
+for (const [, images] of categoriesMap) {
+  for (const image of images) {
+    if (!uniqueImagesSet.has(image)) {
+      uniqueImagesSet.add(image);
+    }
+  }
+}
+
+const uniqueImages = Array.from(uniqueImagesSet);
 
   return (
     <div className="container-images-selecte-suggestions">
