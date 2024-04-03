@@ -30,42 +30,52 @@ export function Pin() {
       setSelectedImage(result);
   };
 
-const uniqueImagesSet = new Set();
+  const uniqueImagesSet = new Set();
 
-if (selectedImage && selectedImage.category) {
-  const selectedCategories = selectedImage.category.split(',');
-
-  for (const category of selectedCategories) {
-    if (categoriesMap.has(category)) {
-      const images = categoriesMap.get(category);
-      for (const image of images) {
-        uniqueImagesSet.add(image);
+  
+  const addImagesFromCategories = (categories) => {
+    categories.forEach((category) => {
+      if (categoriesMap.has(category)) {
+        const images = categoriesMap.get(category);
+        images.forEach((image) => uniqueImagesSet.add(image));
       }
-    }
-  }
-} else {
-  const tagsImages = selectedImage?.tags.split(',');
-  if (tagsImages) {
-    for (const tag of tagsImages) {
+    });
+  };
+  
+  const addImagesFromTags = (tags) => {
+    tags.forEach((tag) => {
       if (categoriesMap.has(tag)) {
-        const images = categoriesMap.get(tag); 
-        for (const image of images) {
+        const images = categoriesMap.get(tag);
+        images.forEach((image) => uniqueImagesSet.add(image));
+      }
+    });
+  };
+  
+  const addRemainingImages = () => { 
+    categoriesMap.forEach((images) => {
+      images.forEach((image) => {
+        if (!uniqueImagesSet.has(image)) {
           uniqueImagesSet.add(image);
         }
+      });
+    });
+  };
+  
+  const findUniqueImages = () => {
+    if (selectedImage && selectedImage.category) {
+      addImagesFromCategories(selectedImage.category.split(','));
+    } else {
+      const tagsImages = selectedImage?.tags.split(',');
+      if (tagsImages) {
+        addImagesFromTags(tagsImages);
       }
     }
-  }
-}
+    addRemainingImages();
+  };
 
-for (const [, images] of categoriesMap) {
-  for (const image of images) {
-    if (!uniqueImagesSet.has(image)) {
-      uniqueImagesSet.add(image);
-    }
-  }
-}
-
-const uniqueImages = Array.from(uniqueImagesSet);
+  findUniqueImages();
+  
+  const uniqueImages = Array.from(uniqueImagesSet);
 
   return (
     <div className="container-images-selecte-suggestions">

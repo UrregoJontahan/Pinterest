@@ -6,7 +6,7 @@ import { FaHeart } from "react-icons/fa6";
 import { Confeti } from "../congratulations";
 
 export function ListImages() {
-    const {filtered} = useContext(DataContext)
+    const { filteredImages } = useContext(DataContext)
     const [showConfeti, setShowConfeti] = useState(false);
 
     const handleLikeClick = () => {
@@ -15,14 +15,12 @@ export function ListImages() {
             setShowConfeti(false);
         }, 1000); 
     };
-
-
   return (
     <div className="father-counter-images">
       <div className="counter-images">
         <div className="images">
-          {filtered.map(({ image, _id }) => (
-            <div key={_id} className="image-container" >
+          {filteredImages.map(({ image, _id }) => (
+            <div key={image._id} className="image-container" >
               <Link to={`page-pin/${_id}`}>
                 <img src={image} className="img-ramdom" />
               </Link>

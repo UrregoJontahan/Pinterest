@@ -6,7 +6,7 @@ export function Search() {
   const [clickInX, setClickInX] = useState(false);
   const [state, setState] = useState("")
   const inputRef = useRef(null);
-  const { handleSearchChange} = useContext( DataContext);
+  const { handleSearchChange } = useContext( DataContext);
 
   useEffect(() => {
     const handleClickOutside = (e) => {
