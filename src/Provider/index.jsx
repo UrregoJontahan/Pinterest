@@ -37,15 +37,49 @@ function Provider( {children} ){
     const handleSearchChange = (searchimg) => {
         setSearchImages(searchimg);
       };
-
-      const filtered = images.filter(({ title, category, tags }) =>
-      title.toLowerCase().includes(searchImages.toLowerCase()) ||
-      category.toLowerCase().includes(searchImages.toLowerCase()) ||
-      tags.some(tag => tag.toLowerCase().includes(searchImages.toLowerCase()))
-  );
-  
+    
+      const filteredImages = [];
+      const searchImg = searchImages.toLowerCase(); 
+      
+      categoriesMap.forEach((images) => {
+          const filteredInCategory = images.filter(({ tags }) =>
+              tags.some(tag => tag.toLowerCase().includes(searchImg))
+          );
+      
+          if (filteredInCategory.length > 0) {
+              filteredImages.push(...filteredInCategory);
+              return;
+          }
+      });
+      
+      if (filteredImages.length === 0) {
+          categoriesMap.forEach((images) => {
+              const filteredInCategory = images.filter(({ category }) =>
+                  category.toLowerCase().includes(searchImg)
+          );
+      
+      if (filteredInCategory.length > 0) {
+            filteredImages.push(...filteredInCategory);
+              return;
+            }
+        });
+      }
+      
+      if (filteredImages.length === 0) {
+          categoriesMap.forEach((images) => {
+              const filteredInCategory = images.filter(({ title }) =>
+                  title.toLowerCase().includes(searchImg)
+              );
+      
+              if (filteredInCategory.length > 0) {
+                  filteredImages.push(...filteredInCategory);
+                  return;
+              }
+          });
+      }
+      
     return(
-        <DataContext.Provider value={{images, selectedImage , setSelectedImage, handleSearchChange, filtered ,categoriesMap }}>
+        <DataContext.Provider value={{images, selectedImage , setSelectedImage, handleSearchChange, filteredImages ,categoriesMap }}>
             {children}
         </DataContext.Provider>
     )
