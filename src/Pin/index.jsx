@@ -6,6 +6,9 @@ import { DataContext } from "../Provider";
 import { getImageById } from "../API";
 import { FaHeart } from "react-icons/fa6";
 import { Confeti } from "../congratulations";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import loading from "../assets/loading.jpg"
+import "react-lazy-load-image-component/src/effects/blur.css"
 
 export function Pin() {
   const { categoriesMap }  = useContext(DataContext);
@@ -15,7 +18,7 @@ export function Pin() {
 
   const handleLikeClick = () => {
       setShowConfeti(true);
-      setTimeout(() => {
+      setTimeout(() => { 
           setShowConfeti(false);
       }, 1000); 
   };  
@@ -100,7 +103,7 @@ export function Pin() {
           {uniqueImages.map(({ image, _id }) => (
             <div key={_id} className="image-container">
               <Link to={`/page-pin/${_id}`}>
-                <img src={image} className="img-ramdom" loading="lazy" />
+              <LazyLoadImage src={image} className="img-ramdom" placeholderSrc={loading} effect="blur" threshold={0}/>
               </Link>
               <button className="btn-save-image" onClick={handleLikeClick}>
                 <FaHeart className="icon-heart" />
