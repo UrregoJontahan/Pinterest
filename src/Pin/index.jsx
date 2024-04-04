@@ -32,7 +32,6 @@ export function Pin() {
 
   const uniqueImagesSet = new Set();
 
-  
   const addImagesFromCategories = (categories) => {
     categories.forEach((category) => {
       if (categoriesMap.has(category)) {
@@ -101,7 +100,7 @@ export function Pin() {
           {uniqueImages.map(({ image, _id }) => (
             <div key={_id} className="image-container">
               <Link to={`/page-pin/${_id}`}>
-                <img src={image} className="img-ramdom" />
+                <img src={image} className="img-ramdom" loading="lazy" />
               </Link>
               <button className="btn-save-image" onClick={handleLikeClick}>
                 <FaHeart className="icon-heart" />
