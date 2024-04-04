@@ -4,9 +4,7 @@ import { Link } from "react-router-dom";
 import { DataContext } from "../Provider";
 import { FaHeart } from "react-icons/fa6";
 import { Confeti } from "../congratulations";
-import { LazyLoadImage } from "react-lazy-load-image-component";
 import loading from "../assets/loading.jpg"
-import "react-lazy-load-image-component/src/effects/blur.css"
 
 export function ListImages() {
     const { filteredImages } = useContext(DataContext)
@@ -24,10 +22,8 @@ export function ListImages() {
       <div className="counter-images">
         <div className="images">
           {filteredImages.map(({ image, _id }) => (
-            <div key={image._id} className="image-container" >
-              <Link to={`page-pin/${_id}`}>
-                <LazyLoadImage src={image} className="img-ramdom" placeholderSrc={loading} effect="blur" threshold={0}/>
-              </Link>
+            <div key={_id + Date.now() + Math.random()} className="image-container" >
+                <LazyImage src={image} />
               <button className="btn-save-image" onClick={handleLikeClick}>
                 <FaHeart className="icon-heart" />
                    {showConfeti && <Confeti />}
@@ -39,3 +35,22 @@ export function ListImages() {
     </div>
   );
 }
+
+
+function LazyImage({src}) {
+  
+  const [isLoading, setLoadingState] = useState("hidden")
+
+  return (
+    <div style={{position: 'relative'}}>
+      {isLoading && <div className="loader" />}
+      <img 
+        loading="lazy" 
+        decoding="async"
+        className={`img-ramdom ${isLoading && "loading-opacity"}`}
+        onLoad={()=> setLoadingState("")}
+        src={src} 
+      />
+    </div>
+  )
+} 
